@@ -4,13 +4,9 @@
 #include <iostream>
 
 #define NUM_REGS 4
-short regs[NUM_REGS];
-int prog[] = { 0x1064, 0x11C8, 0x2201, 0x0000 };
-
-int pc = 0; // program counter
+long long regs[NUM_REGS];
 
 FILE* objectFile;
-int lineLength;
 char curLine[1024];
 
 void die(const char* message)
@@ -82,6 +78,14 @@ void eval()
 		printf("sub r%d r%d r%d\n", reg1, reg2, reg3);
 		regs[reg1] = regs[reg2] - regs[reg3];
 		break;
+	case 5:
+		printf("mul r%d r%d r%d\n", reg1, reg2, reg3);
+		regs[reg1] = regs[reg2] * regs[reg3];
+		break;
+	case 6:
+		printf("mul r%d r%d r%d\n", reg1, reg2, reg3);
+		regs[reg1] = regs[reg2] * regs[reg3];
+		break;
 	}
 }
 void showRegs()
@@ -98,9 +102,10 @@ void run()
 	{
 		int instr = fetch();
 		decode(instr);
-		eval();
 		showRegs();
+		eval();
 	}
+	showRegs();
 }
 int main(int argc, char* argv[])
 {

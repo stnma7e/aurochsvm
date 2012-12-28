@@ -6,8 +6,9 @@
 	g++ $<
 
 all: asm vm
+	asm com.asm com.o
 
 clean:
-	rm -rf asm.exe asm.hi asm.o
+	rm -rf asm.exe asm.hi
 	rm -rf a.exe
-	rm -rf com.o
+	rm -rf *.o

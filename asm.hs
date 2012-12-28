@@ -40,10 +40,12 @@ getAsm :: String -> String
 getAsm input = parseAsm input []
 parseAsm input total = 
         let (x:xs) = words (unlines (splitLines input))
-		in case x of
+		in case (map toLower x) of
 			"loadi"		-> parseAsm (unwords xs) (total ++ ("1" ++ comBody xs) ++ "\n")
 			"loadr"		-> parseAsm (unwords xs) (total ++ ("2" ++ comBody xs) ++ "0\n")
 			"add"		-> parseAsm (unwords xs) (total ++ ("3" ++ dubReg xs) ++ "\n")
 			"sub"		-> parseAsm (unwords xs) (total ++ ("4" ++ dubReg xs) ++ "\n")
+			"mul"		-> parseAsm (unwords xs) (total ++ ("5" ++ dubReg xs) ++ "\n")
+			"div"		-> parseAsm (unwords xs) (total ++ ("6" ++ dubReg xs) ++ "\n")
 			"halt"		-> total ++ "0000\n"
 			_			-> parseAsm (unwords xs) total
