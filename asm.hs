@@ -14,7 +14,7 @@ main = mainWith myFunction
 			args <- getArgs
 			case args of
 				[input, output] -> interactWith function input output
-				_ -> putStrLn "error: exactly two arguments needed"
+				_ -> putStrLn "USAGE: <source file> <output file>"
 				
 -- replace "id" with the name of our function below
 -- myFunction = id -- copies from first arg to second
