@@ -74,17 +74,17 @@ void eval()
 		printf("add r%d r%d r%d\n", reg1, reg2, reg3);
 		regs[reg1] = regs[reg2] + regs[reg3];
 		break;
-	case 4:
+	case 4: // sub
 		printf("sub r%d r%d r%d\n", reg1, reg2, reg3);
 		regs[reg1] = regs[reg2] - regs[reg3];
 		break;
-	case 5:
+	case 5: // mul
 		printf("mul r%d r%d r%d\n", reg1, reg2, reg3);
 		regs[reg1] = regs[reg2] * regs[reg3];
 		break;
-	case 6:
-		printf("mul r%d r%d r%d\n", reg1, reg2, reg3);
-		regs[reg1] = regs[reg2] * regs[reg3];
+	case 6: // div
+		printf("div r%d r%d r%d\n", reg1, reg2, reg3);
+		regs[reg1] = regs[reg2] / regs[reg3];
 		break;
 	}
 }
